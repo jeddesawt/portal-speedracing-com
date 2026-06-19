@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jeddesawt.github.io/portal-speedracing-com/sitemap.xml

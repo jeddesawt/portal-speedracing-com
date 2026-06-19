@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次遇见 · 极速赛车</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            line-height: 1.7;
+            color: #1f2937;
+            background-color: #f8fafc;
+        }
+
+        a {
+            color: #b91c1c;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #7f1d1d;
+            text-decoration: underline;
+        }
+
+        /* ----- 深色导航 + 头图 ----- */
+        .nav-hero {
+            background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+            padding: 0 5% 3.5rem;
+            position: relative;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            flex-wrap: wrap;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #f1f5f9;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 0.25rem 0.75rem;
+            border-radius: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: #facc15;
+            text-decoration: none;
+        }
+
+        .hero-area {
+            margin-top: 3rem;
+            max-width: 780px;
+        }
+
+        .hero-area h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-area p {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-area .tagline {
+            color: #facc15;
+            font-weight: 400;
+            font-size: 0.95rem;
+            margin-top: 1.2rem;
+        }
+
+        /* ----- 浅色正文区 ----- */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 5% 2rem;
+        }
+
+        .intro-block {
+            margin-bottom: 3.5rem;
+            border-left: 4px solid #b91c1c;
+            padding-left: 1.5rem;
+        }
+
+        .intro-block h2 {
+            font-size: 1.75rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: #0f172a;
+        }
+
+        .intro-block p {
+            color: #334155;
+            font-size: 1.05rem;
+            max-width: 800px;
+        }
+
+        /* ----- 三个场景模块（卡片式） ----- */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0 2.5rem;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 8px 24px rgba(0, 0, 0, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+        }
+
+        .scene-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .scene-card h3::before {
+            content: "●";
+            color: #b91c1c;
+            font-size: 0.8rem;
+        }
+
+        .scene-card p {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .scene-card .note {
+            color: #64748b;
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ----- 常见说明（FAQ 摘要风格） ----- */
+        .faq-section {
+            margin: 3.5rem 0 1.5rem;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .faq-section h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            color: #1e293b;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .faq-answer {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .faq-answer a {
+            color: #b91c1c;
+        }
+
+        /* ----- 页脚提示 ----- */
+        .footer-note {
+            margin-top: 4rem;
+            padding: 1.5rem 0 2rem;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* ----- 响应式 ----- */
+        @media (max-width: 900px) {
+            .scenes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-area h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 1.25rem;
+            }
+
+            .scenes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-area h1 {
+                font-size: 1.75rem;
+            }
+
+            .intro-block {
+                padding-left: 1rem;
+            }
+
+            .faq-section {
+                padding: 1.8rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 + 导航 -->
+    <div class="nav-hero">
+        <div class="nav-bar">
+            <span class="nav-logo">◈ 再次访问</span>
+            <ul class="nav-links">
+                <li><a href="#intro">回顾</a></li>
+                <li><a href="#scenes">场景</a></li>
+                <li><a href="#faq">了解</a></li>
+            </ul>
+        </div>
+        <div class="hero-area">
+            <h1>极速赛车 · 再度相逢</h1>
+            <p>收藏一处能随时回望的起点，让速度与节奏在熟悉的页面中延续。</p>
+            <p>这不只是一个地址，而是你每次想要进入节奏时，最直接的路径。</p>
+            <div class="tagline">把这里加入书签 —— 下一次你仍会找到它</div>
+        </div>
+    </div>
+
+    <!-- 浅色正文区 -->
+    <div class="content">
+
+        <!-- 核心介绍（从再次访问、收藏角度） -->
+        <div class="intro-block" id="intro">
+            <h2>为什么值得再次回来</h2>
+            <p>
+                网页有时像一条路，走过一次之后，第二次会自然许多。当你将 <a href="https://portal-speedracing.com">极速赛车</a> 
+                添加到收藏夹或浏览器标签栏，你不只是在保存一个链接，更是在保存一种熟悉的浏览节奏——不需要重新搜索，不需要回忆入口，直接就能回到那个你习惯的界面。
+            </p>
+            <p style="margin-top: 0.75rem;">
+                很多站点第一次很新鲜，第二次却找不到当初的感觉。但这里不同：它始终是那个路径清晰、信息直接的地方。持续关注它，意味着你总能用最短的距离回到速度相关的资讯与功能前。
+            </p>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <div class="scenes-grid" id="scenes">
+            <div class="scene-card">
+                <h3>日常浏览</h3>
+                <p>工作间隙、午休前后，打开收藏的页面扫一眼最新内容。不需要登录、不需要复杂的操作，打开即用。这种轻量的习惯会让你更自然地保持关注。</p>
+                <div class="note">▸ 适合：快速刷新信息</div>
+            </div>
+            <div class="scene-card">
+                <h3>固定参考</h3>
+                <p>当你想回顾某些设置、规则或历史说明时，把 <a href="https://portal-speedracing.com">极速赛车</a> 当作一个固定的参考点。它就在那里，结构清晰，不是临时搭建的页面。</p>
+                <div class="note">▸ 适合：查找与比对</div>
+            </div>
+            <div class="scene-card">
+                <h3>分享与推荐</h3>
+                <p>朋友问起相关的信息源，你可以直接把这个链接发过去。不需要解释太多，让他们自己浏览，自己发现。一个好的页面自己会说话。</p>
+                <div class="note">▸ 适合：安静的传递</div>
+            </div>
+        </div>
+
+        <!-- 常见说明（FAQ 摘要） -->
+        <div class="faq-section" id="faq">
+            <h2>一些你可能想知道的</h2>
+            <div class="faq-item">
+                <div class="faq-question">这个页面会经常变化吗？</div>
+                <div class="faq-answer">内容会保持更新与整理，但核心结构和入口位置是稳定的。你收藏的链接不会失效，每次打开看到的仍是那个熟悉的 <a href="https://portal-speedracing.com">极速赛车</a> 页面。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">我需要注册或登录才能使用吗？</div>
+                <div class="faq-answer">大部分内容可以直接浏览，不需要额外的账户。部分功能或个性化设置可能基于你的浏览器环境，但访问本身是开放的。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">如何确保我下次还能快速找到？</div>
+                <div class="faq-answer">将链接添加到浏览器书签栏，或者直接设为常用标签页。如果你习惯用历史记录，只要访问过一次，下次输入关键词通常也会自动补全。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">这里的“极速赛车”具体指什么？</div>
+                <div class="faq-answer">它指向一个以速度和赛车相关主题为核心的线上信息页面，包含内容浏览、功能入口和持续更新的动态区域。你可以在 <a href="https://portal-speedracing.com">极速赛车</a> 页面里了解全貌。</div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer-note">
+            ◇ 收藏即重逢 · 简洁而可依赖
+        </div>
+    </div>
+
+</body>
+</html>
